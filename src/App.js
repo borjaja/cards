@@ -3,9 +3,9 @@ import Card from './Card'
 function App() {
   return (
     <div className="App">
-      <Card />
-      <Card />
-      <Card />
+      <Card name="Alan smith" />
+      <Card name="Alan smith" />
+      <Card name="Alan smith" />
     </div>
   );
 }
