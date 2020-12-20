@@ -1,24 +1,23 @@
 import React, { useState } from 'react'
 import './App.css';
 import Card from './Card'
+import faker from 'faker'
 
 function App() {
-  const [getname, setName] = useState('Emmie Quitzon')
-  const changeName = newName => setName(newName)
-  const changeInputHandler = (event) => setName(event.target.value)
   const [isVisible, setVisible] = useState(true)
   const toggleVisible = () => setVisible(!isVisible)
-  const buttons = (
-    <div>
-      <button className="button button2">YES</button>
-      <button className="button button3">NO</button>
-    </div>);
-  const cardsMarkup = isVisible && <div className="Cards">
-    <Card name={getname} title="Regional Identity Developer" avatar="http://placeimg.com/640/480/abstract"
-      onchangeName={() => changeName('Iron Patriot')} onchangeInputHandler={changeInputHandler}>
-      {buttons}
-    </Card>
-  </div>
+  const [getCards, setCards] = useState([
+    {
+      name: faker.name.firstName(), title: faker.name.jobTitle(), avatar: faker.image.abstract()
+    }, {
+      name: faker.name.firstName(), title: faker.name.jobTitle(), avatar: faker.image.animals()
+    }, {
+      name: faker.name.firstName(), title: faker.name.jobTitle(), avatar: faker.image.city()
+    },
+  ])
+  const cardsMarkup = isVisible && getCards.map(
+    card => <Card name={card.name} title={card.title} avatar={card.avatar} />
+  )
 
   return (
     <div className="App">
