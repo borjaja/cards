@@ -8,6 +8,7 @@ const Card = (props) => {
             <div className="container">
                 <h4><b>{props.name}</b></h4>
                 <p>{props.title}</p>
+                <input type="text" value={props.name} onChange={props.onchangeInputHandler} />
                 <button className="button" onClick={props.onchangeName}>Change name</button>
                 <div>{props.children}</div>
             </div>

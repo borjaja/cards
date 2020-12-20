@@ -4,9 +4,9 @@ import Card from './Card'
 
 function App() {
   const [getname, setName] = useState('Emmie Quitzon')
-  const changeName = (newName) => {
-    setName(newName)
-  }
+  const changeName = newName => setName(newName)
+  const changeInputHandler = (event) => setName(event.target.value)
+
   const buttons = (
     <div>
       <button className="button button2">YES</button>
@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <button className="button" onClick={() => changeName('Iron man')}>Change name</button>
       <Card name={getname} title="Regional Identity Developer" avatar="http://placeimg.com/640/480/abstract"
-        onchangeName={() => changeName('Iron Patriot')}>
+        onchangeName={() => changeName('Iron Patriot')} onchangeInputHandler={changeInputHandler}>
         {buttons}
       </Card>
       <Card name="Dallin Bradtke" title="Human Applications Designer" avatar="http://placeimg.com/640/480/city">
