@@ -8,19 +8,19 @@ function App() {
   const toggleVisible = () => setVisible(!isVisible)
   const [getCards, setCards] = useState([
     {
-      id: faker.name.id,
+      id: 'aaaaaaaaaaaaaa',
       name: faker.name.firstName(),
       title: faker.name.jobTitle(),
       avatar: faker.image.business(),
     },
     {
-      id: faker.name.id,
+      id: 'bbbbbbbbbbbbbb',
       name: faker.name.firstName(),
       title: faker.name.jobTitle(),
       avatar: faker.image.abstract(),
     },
     {
-      id: faker.name.id,
+      id: 'ccccccccccccccc',
       name: faker.name.firstName(),
       title: faker.name.jobTitle(),
       avatar: faker.image.people(),
@@ -31,13 +31,22 @@ function App() {
     cards.splice(cardIndex, 1)
     setCards(cards)
   }
-  const cardsMarkup = isVisible && getCards.map((card, index) =>
+  const changeNameHandler = (event, id) => {
+    console.log(id)
+    debugger;
+    const cardIndex = getCards.findIndex(card => card.id === id)
+    const cards = [...getCards]
+    cards[cardIndex].name = event.target.value
+    setCards(cards)
+  }
+  const cardsMarkup = isVisible && getCards.map(card =>
     <Card
       key={card.id}
       name={card.name}
       title={card.title}
       avatar={card.avatar}
-      deleteCardHandler={() => deleteCardHandler(index)} />
+      onChange={(event) => changeNameHandler(event, card.id)}
+      deleteCardHandler={() => deleteCardHandler(card.id)} />
   )
 
   return (
