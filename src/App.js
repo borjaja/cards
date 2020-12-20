@@ -8,16 +8,19 @@ function App() {
   const toggleVisible = () => setVisible(!isVisible)
   const [getCards, setCards] = useState([
     {
+      id: faker.name.id,
       name: faker.name.firstName(),
       title: faker.name.jobTitle(),
       avatar: faker.image.business(),
     },
     {
+      id: faker.name.id,
       name: faker.name.firstName(),
       title: faker.name.jobTitle(),
       avatar: faker.image.abstract(),
     },
     {
+      id: faker.name.id,
       name: faker.name.firstName(),
       title: faker.name.jobTitle(),
       avatar: faker.image.people(),
@@ -30,7 +33,7 @@ function App() {
   }
   const cardsMarkup = isVisible && getCards.map((card, index) =>
     <Card
-      key={index}
+      key={card.id}
       name={card.name}
       title={card.title}
       avatar={card.avatar}
