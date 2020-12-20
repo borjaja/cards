@@ -48,10 +48,16 @@ function App() {
       onChange={(event) => changeNameHandler(event, card.id)}
       deleteCardHandler={() => deleteCardHandler(card.id)} />
   )
+  const buttonStyle = {
+    backgroundColor: null
+  }
+
+  if (getCards.length < 3) buttonStyle.backgroundColor = 'pink'
+  if (getCards.length < 2) buttonStyle.backgroundColor = 'red'
 
   return (
     <div className="App">
-      <button className="button" onClick={toggleVisible}>Toggle</button>
+      <button className="button" style={buttonStyle} onClick={toggleVisible}>Toggle</button>
       {cardsMarkup}
     </div>
   );
