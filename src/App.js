@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './App.css';
 import Card from './Card'
-import faker from 'faker'
 
 function App() {
+  const [getname, setName] = useState('Emmie Quitzon')
+  const changeName = () => {
+    setName('Iron man')
+  }
   const buttons = (
     <div>
       <button className="button button2">YES</button>
@@ -11,22 +14,11 @@ function App() {
     </div>);
   return (
     <div className="App">
-      <Card
-        name={` ${faker.name.firstName()} ${faker.name.lastName()}`}
-        title={faker.name.jobTitle()}
-        avatar={faker.image.abstract()}>
+      <button className="button" onClick={changeName}>Change name</button>
+      <Card name={getname} title="Regional Identity Developer" avatar="http://placeimg.com/640/480/abstract">
         {buttons}
       </Card>
-      <Card
-        name={` ${faker.name.firstName()} ${faker.name.lastName()}`}
-        title={faker.name.jobTitle()}
-        avatar={faker.image.city()}>
-        {buttons}
-      </Card>
-      <Card
-        name={` ${faker.name.firstName()} ${faker.name.lastName()}`}
-        title={faker.name.jobTitle()}
-        avatar={faker.image.nightlife()}>
+      <Card name="Dallin Bradtke" title="Human Applications Designer" avatar="http://placeimg.com/640/480/city">
         {buttons}
       </Card>
     </div>
