@@ -4,8 +4,8 @@ import Card from './Card'
 
 function App() {
   const [getname, setName] = useState('Emmie Quitzon')
-  const changeName = () => {
-    setName('Iron man')
+  const changeName = (newName) => {
+    setName(newName)
   }
   const buttons = (
     <div>
@@ -14,8 +14,9 @@ function App() {
     </div>);
   return (
     <div className="App">
-      <button className="button" onClick={changeName}>Change name</button>
-      <Card name={getname} title="Regional Identity Developer" avatar="http://placeimg.com/640/480/abstract">
+      <button className="button" onClick={() => changeName('Iron man')}>Change name</button>
+      <Card name={getname} title="Regional Identity Developer" avatar="http://placeimg.com/640/480/abstract"
+        onchangeName={() => changeName('Iron Patriot')}>
         {buttons}
       </Card>
       <Card name="Dallin Bradtke" title="Human Applications Designer" avatar="http://placeimg.com/640/480/city">
