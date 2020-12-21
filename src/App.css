@@ -41,3 +41,16 @@
 .button-red {
   background-color: #f44336;
 } /* Red */
+
+.text{
+  font-weight: bold;
+  color:black;
+}
+
+.pink{
+  background-color: pink;
+}
+
+.red{
+  background-color: red;
+}

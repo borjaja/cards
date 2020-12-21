@@ -51,13 +51,13 @@ function App() {
   const buttonStyle = {
     backgroundColor: null
   }
-
-  if (getCards.length < 3) buttonStyle.backgroundColor = 'pink'
-  if (getCards.length < 2) buttonStyle.backgroundColor = 'red'
+  const classes = ['button']
+  if (getCards.length < 3) classes.push('pink')
+  if (getCards.length < 2) classes.push('red')
 
   return (
     <div className="App">
-      <button className="button" style={buttonStyle} onClick={toggleVisible}>Toggle</button>
+      <button className={classes.join(' ')} onClick={toggleVisible}>Toggle</button>
       {cardsMarkup}
     </div>
   );
