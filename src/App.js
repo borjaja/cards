@@ -2,7 +2,21 @@ import React, { useState } from 'react'
 import './App.css';
 import Card from './Card'
 import faker from 'faker'
-
+import styled from 'styled-components'
+const Button = styled.button`
+  background-color: ${props => props.length>2?'#4caf50': props.length<2?'red':'pink'}; 
+  border: none;
+  color: ${props => props.length<=1?'black':'white'};
+  padding: 15px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: ${props => props.length<=1?'bold':'normal'};
+  margin: 4px 2px;
+  cursor: pointer;
+  min-width: 80px;
+`
 function App() {
   const [isVisible, setVisible] = useState(true)
   const toggleVisible = () => setVisible(!isVisible)
@@ -57,6 +71,7 @@ function App() {
 
   return (
     <div className="App">
+      <Button length={getCards.length}>Toggle</Button>
       <button className={classes.join(' ')} onClick={toggleVisible}>Toggle</button>
       {cardsMarkup}
     </div>
