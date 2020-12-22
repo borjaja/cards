@@ -2,27 +2,13 @@ import React, { useState } from 'react'
 import './App.css';
 import Card from './Card'
 import faker from 'faker'
-import styled, {ThemeProvider, css} from 'styled-components'
+import {ThemeProvider} from 'styled-components'
+import Button from './element/Button'
 const theme = {
   primary: '#4caf50',
   mango: 'yellow'
 }
-const Button = styled.button` 
-  border: none;
-  ${props => props.color && css`
-    background-color: ${props => props.length>2? props.theme[props.color]: props.length<2?'red':'pink'};
-    color: ${props => props.length<=1?'white':'black'};
-  `}
-  padding: 15px 22px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  font-weight: ${props => props.length<=1?'bold':'normal'};
-  margin: 4px 2px;
-  cursor: pointer;
-  min-width: 80px;
-`
+
 function App() {
   const [isVisible, setVisible] = useState(true)
   const toggleVisible = () => setVisible(!isVisible)
