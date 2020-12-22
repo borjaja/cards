@@ -2,11 +2,17 @@ import React, { useState } from 'react'
 import './App.css';
 import Card from './Card'
 import faker from 'faker'
-import styled from 'styled-components'
-const Button = styled.button`
-  background-color: ${props => props.length>2?'#4caf50': props.length<2?'red':'pink'}; 
+import styled, {ThemeProvider, css} from 'styled-components'
+const theme = {
+  primary: '#4caf50',
+  mango: 'yellow'
+}
+const Button = styled.button` 
   border: none;
-  color: ${props => props.length<=1?'black':'white'};
+  ${props => props.color && css`
+    background-color: ${props => props.length>2? props.theme[props.color]: props.length<2?'red':'pink'};
+    color: ${props => props.length<=1?'white':'black'};
+  `}
   padding: 15px 22px;
   text-align: center;
   text-decoration: none;
@@ -70,11 +76,13 @@ function App() {
   if (getCards.length < 2) classes.push('red')
 
   return (
+    <ThemeProvider theme={theme}>
     <div className="App">
-      <Button length={getCards.length}>Toggle</Button>
+      <Button color="mango" length={getCards.length}>Toggle</Button>
       <button className={classes.join(' ')} onClick={toggleVisible}>Toggle</button>
       {cardsMarkup}
     </div>
+    </ThemeProvider>
   );
 }
 
