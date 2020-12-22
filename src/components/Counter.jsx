@@ -1,43 +1,24 @@
-import React, { useReducer } from 'react'
+import React, { useContext } from 'react'
 import { Button, ButtonGroup, Badge } from 'reactstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { StateContext } from "../App";
 
-const initialState = { counter: 0 }
-const reducer = (state, action) => {
-    switch (action.type) {
-        case 'increment': return { ...state, counter: state.counter + 1 }
-        case 'decrement': return { ...state, counter: state.counter - 1 }
-        case 'reset': return initialState
-        default: break;
-    }
-}
 
 const Counter = () => {
-    const [state1, dispatch1] = useReducer(reducer, initialState)
-    const [state2, dispatch2] = useReducer(reducer, initialState)
+    const { state, dispatch } = useContext(StateContext)
     return (
         <div>
             <ButtonGroup>
                 <Button color="primary" outline>
-                    Counter1 <Badge color="secondary">{state1.counter}</Badge>
-                </Button>
-                <Button color="primary" outline>
-                    Counter2 <Badge color="secondary">{state2.counter}</Badge>
+                    Counter1 <Badge color="secondary">{state.counter}</Badge>
                 </Button>
             </ButtonGroup>
             <br /><br />
             <ButtonGroup>
-                <Button onClick={() => { dispatch1({ type: 'increment' }) }} color="dark">increment</Button>
-                <Button onClick={() => { dispatch1({ type: 'decrement' }) }} color="dark">decrement</Button>
-                <Button onClick={() => { dispatch1({ type: 'reset' }) }} color="danger">reset</Button>
+                <Button onClick={() => { dispatch({ type: 'increment' }) }} color="dark">increment</Button>
+                <Button onClick={() => { dispatch({ type: 'decrement' }) }} color="dark">decrement</Button>
+                <Button onClick={() => { dispatch({ type: 'reset' }) }} color="danger">reset</Button>
             </ButtonGroup>
-            <br /><br />
-            <ButtonGroup>
-                <Button onClick={() => { dispatch2({ type: 'increment' }) }} color="dark">increment</Button>
-                <Button onClick={() => { dispatch2({ type: 'decrement' }) }} color="dark">decrement</Button>
-                <Button onClick={() => { dispatch2({ type: 'reset' }) }} color="danger">reset</Button>
-            </ButtonGroup>
-
         </div>
     )
 }
