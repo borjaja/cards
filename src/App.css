@@ -1,56 +1,56 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .card {
-  /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-  width: 20%;
-  min-width: 250px;
-  margin: 0 auto 10px;
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 20%;
+    min-width: 250px;
+    margin: 0 auto 10px;
 }
 
 /* On mouse-over, add a deeper shadow */
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 /* Add some padding inside the card container */
 .container {
-  padding: 2px 16px;
+    padding: 2px 16px;
 }
 
 .button {
-  background-color: #4caf50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 22px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  min-width: 80px;
+    background-color: #4caf50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    min-width: 80px;
 }
 
 .button-blue {
-  background-color: #008cba;
+    background-color: #008cba;
 } /* Blue */
 .button-red {
-  background-color: #f44336;
+    background-color: #f44336;
 } /* Red */
 
-.text{
-  font-weight: bold;
-  color:black;
+.text {
+    font-weight: bold;
+    color: black;
 }
 
-.pink{
-  background-color: pink;
+.pink {
+    background-color: pink;
 }
 
-.red{
-  background-color: red;
+.red {
+    background-color: red;
 }
