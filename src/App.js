@@ -1,40 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./App.css";
-import Card from "./Card";
-import { ThemeProvider } from "styled-components";
-import axios from "axios";
+import ComponentA from "./components/ComponentA";
 
-const theme = {
-    primary: "#4caf50",
-    mango: "yellow",
-};
+export const NameContext = React.createContext()
 
 function App() {
-    const [id, setId] = useState(1);
-    const [card, setCard] = useState([]);
-
-    useEffect(() => {
-        axios.get(`https://jsonplaceholder.typicode.com/users/${id}`).then((res) => {
-            console.log(res.data);
-            setCard(res.data);
-        });
-    }, [id]);
-
-    const changeNameHandler = (event, id) => {
-        const cardCopy = { ...card };
-        cardCopy.name = event.target.value;
-        setCard(cardCopy);
-    };
-
-
 
     return (
-        <ThemeProvider theme={theme}>
-            <div className="App">
-                <input type="text" value={id} onChange={e => setId(e.target.value)} />
-                <Card key={card.id} name={card.name} phone={card.phone} onChange={(event) => changeNameHandler(event, card.id)} />
-            </div>
-        </ThemeProvider>
+        <div className="App">
+            <NameContext.Provider value={'Smith'}>
+                <ComponentA />
+            </NameContext.Provider>
+        </div>
     );
 }
 
