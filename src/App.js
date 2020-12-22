@@ -1,9 +1,11 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "./App.css";
 import Card from "./Card";
 import faker from "faker";
 import {ThemeProvider} from "styled-components";
 import Button from "./element/Button";
+import axios from "axios";
+
 const theme = {
     primary: "#4caf50",
     mango: "yellow",
@@ -32,6 +34,12 @@ function App() {
             avatar: faker.image.people(),
         },
     ]);
+    useEffect(() => {
+        axios.get("https://jsonplaceholder.typicode.com/users").then((res) => {
+            console.log(res.data);
+            setCards(res.data);
+        });
+    }, []);
     const deleteCardHandler = (cardIndex) => {
         const cards = [...getCards];
         cards.splice(cardIndex, 1);
@@ -43,7 +51,11 @@ function App() {
         cards[cardIndex].name = event.target.value;
         setCards(cards);
     };
-    const cardsMarkup = isVisible && getCards.map((card) => <Card key={card.id} name={card.name} title={card.title} avatar={card.avatar} onChange={(event) => changeNameHandler(event, card.id)} deleteCardHandler={() => deleteCardHandler(card.id)} />);
+    const cardsMarkup =
+        isVisible &&
+        getCards.map((card) => {
+            return <Card key={card.id} name={card.name} phone={card.phone} onChange={(event) => changeNameHandler(event, card.id)} deleteCardHandler={() => deleteCardHandler(card.id)} />;
+        });
     const buttonStyle = {
         backgroundColor: null,
     };
