@@ -23,6 +23,10 @@ class Card extends Component {
         // is invoked immediately after updating occurs. This method is not called for the initial render.
         console.log("Card js componentDidUpdate. Receive: ", snapshot);
     }
+    componentWillUnmount() {
+        // is invoked immediately after updating occurs. This method is not called for the initial render.
+        console.log("Card js componentWillUnmount");
+    }
     render() {
         console.log("Card js render");
         return (

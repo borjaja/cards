@@ -62,6 +62,9 @@ class App extends Component {
         // Do any suscribe
     }
     render() {
+        if (this.state.showCard === false) {
+            return <div>nothing</div>;
+        }
         console.log("App js render");
         const classes = ["button"];
         if (this.state.cards.length < 3) classes.push("pink");
