@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import "./App.css";
-import Counter from "./components/Counter";
+import CounterA from "./counters/CounterA";
 
 export const StateContext = React.createContext()
 
@@ -20,7 +20,7 @@ function App() {
     return (
         <StateContext.Provider value={{ state, dispatch }}>
             <div className="App">
-                <Counter />
+                <CounterA />
             </div>
         </StateContext.Provider>
     );
