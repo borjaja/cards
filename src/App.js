@@ -39,8 +39,8 @@ class App extends Component {
         };
     }
 
-    static getDerivatedStateFromProps(props, state) {
-        console.log("App js getDerivatedStateFromProps", props);
+    static getDerivedStateFromProps(props, state) {
+        console.log("App js getDerivedStateFromProps", props);
         // used to change state with a props change
         return state;
     }
