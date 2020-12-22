@@ -2,6 +2,7 @@
 import React, { useContext } from 'react'
 import ComponentC from './ComponentC'
 import { NameContext, ColorContext } from '../App'
+
 const ComponentB = () => {
     const user = useContext(NameContext)
     const color = useContext(ColorContext)
