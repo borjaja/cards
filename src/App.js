@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import "./App.css";
 import Card from "./Card";
 import faker from "faker";
@@ -50,9 +50,7 @@ function App() {
     const classes = ["button"];
     if (getCards.length < 3) classes.push("pink");
     if (getCards.length < 2) classes.push("red");
-    useEffect(() => {
-        alert("App js");
-    }, [getCards]);
+
     return (
         <ThemeProvider theme={theme}>
             <div className="App">
