@@ -3,6 +3,7 @@ import "./App.css";
 
 class Card extends Component {
     render() {
+        console.log("Card js render");
         return (
             <div className="card">
                 <img src={this.props.avatar} alt="Avatar" style={{width: "100%"}} />

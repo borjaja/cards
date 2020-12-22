@@ -12,6 +12,7 @@ const theme = {
 
 class App extends Component {
     constructor(props) {
+        console.log("App js constructor");
         super(props);
         this.state = {
             cards: [
@@ -38,6 +39,12 @@ class App extends Component {
         };
     }
 
+    static getDerivatedStateFromProps(props, state) {
+        console.log("App js getDerivatedStateFromProps", props);
+        // used to change state with a props change
+        return state;
+    }
+
     toggleVisible = () => this.setState({showCard: !this.state.showCard});
     deleteCardHandler = (cardIndex) => {
         const cards = [...this.state.cards];
@@ -50,12 +57,12 @@ class App extends Component {
         cards[cardIndex].name = event.target.value;
         this.setState({cards});
     };
-
-    buttonStyle = {
-        backgroundColor: null,
-    };
-
+    componentDidMount() {
+        console.log("App js componentDidMount");
+        // Do any suscribe
+    }
     render() {
+        console.log("App js render");
         const classes = ["button"];
         if (this.state.cards.length < 3) classes.push("pink");
         if (this.state.cards.length < 2) classes.push("red");
