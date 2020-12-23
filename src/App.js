@@ -1,21 +1,23 @@
-import React, {useRef, useState} from "react";
+import React, {useState, useCallback} from "react";
 import "./App.css";
-import Component from "./components/Component";
+
+const functionCounter = new Set();
 function App() {
-    const inputRef = useRef();
-    const [show, setShow] = useState(true);
+    const [count1, setCount1] = useState(0);
+    const [count2, setCount2] = useState(0);
+    const incrementCount1 = useCallback(() => setCount1(count1 + 1), [count1]);
+    const incrementCount2 = useCallback(() => setCount2(count2 + 1), [count2]);
+    functionCounter.add(incrementCount1);
+    functionCounter.add(incrementCount2);
+    console.log(functionCounter);
     return (
-        <div className="App">
-            <h1></h1>
-            <input ref={inputRef} type="text" />
-            <input type="text" />
-            <input type="text" />
-            <button onClick={() => inputRef.current.focus()}>Focus</button>
-            <p></p>
-            <button onClick={() => setShow(!show)}>toggle</button>
-            <h3>Unmount Component</h3>
-            {show && <Component />}
-        </div>
+        <>
+            <h3>
+                Component count1: {count1} count2: {count2}
+            </h3>
+            <button onClick={incrementCount1}>Button1</button>
+            <button onClick={incrementCount2}>Button1</button>
+        </>
     );
 }
 
