@@ -1,13 +1,11 @@
-import React, {useRef, useState} from "react";
+import React from "react";
 import "./App.css";
-import ComponentA from "./components/ComponentA";
-import ComponentB from "./components/ComponentB";
+import Form from "./components/Form";
+
 function App() {
     return (
         <div className="App">
-            <ComponentA />
-            <p></p>
-            <ComponentB />
+            <Form />
         </div>
     );
 }
