@@ -1,5 +1,6 @@
 import React from "react";
 import faker from "faker";
+import ColorFul from "../hoc/ColorFul";
 const About = () => {
     return (
         <div className="container">
@@ -9,4 +10,4 @@ const About = () => {
     );
 };
 
-export default About;
+export default ColorFul(About);
