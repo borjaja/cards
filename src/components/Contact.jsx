@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import faker from "faker";
 const Contact = (props) => {
-    useEffect(() => {
-        props.history.push('/about')
-    }, [])
+    //useEffect(() => {
+    //    props.history.push('/about')
+    //}, [])
 
     return (
         <div className="container">

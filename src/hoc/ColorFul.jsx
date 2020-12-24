@@ -1,29 +1,17 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
 
-const ColorFul = WrappedComponnet => {
-    const colors = [
-        "text - primary",
-        "text-secondary",
-        "text-success",
-        "text-danger",
-        "text-warning",
-        "text-info",
-        "text-light",
-        "text-dark",
-        "text-muted",
-        "text-white"
-    ]
-    const color = colors[Math.floor(Math.random() * 5)]
+const ColorFul = (WrappedComponnet) => {
+    const colors = ["text - primary", "text-secondary", "text-success", "text-danger", "text-warning", "text-info", "text-light", "text-dark", "text-muted", "text-white"];
+    const color = colors[Math.floor(Math.random() * 5)];
     return (props) => {
         return (
-            < div className={color}><WrappedComponnet {...props} /></div >
-        )
-    }
-}
+            <div className={color}>
+                <WrappedComponnet {...props} />
+            </div>
+        );
+    };
+};
 
-ColorFul.propTypes = {
+ColorFul.propTypes = {};
 
-}
-
-export default ColorFul
+export default ColorFul;
