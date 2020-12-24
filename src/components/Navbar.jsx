@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-import { Link, NavLink, withRouter } from "react-router-dom";
+import React, {useEffect} from "react";
+import {Link, NavLink, withRouter} from "react-router-dom";
 
 const Navbar = (props) => {
-    useEffect(() => {
-        props.history.push('/about')
-    }, [])
+    //useEffect(() => {
+    //    props.history.push("/about");
+    //}, []);
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <a className="navbar-brand" href="#">
@@ -16,9 +16,15 @@ const Navbar = (props) => {
 
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <div className="nav nav-tab">
-                    <NavLink className="nav-link" to="/">Home <span className="sr-only">(current)</span></NavLink>
-                    <NavLink className="nav-link" to="/about">About</NavLink>
-                    <NavLink className="nav-link" to="/contact">Contact</NavLink>
+                    <NavLink className="nav-link" to="/">
+                        Home <span className="sr-only">(current)</span>
+                    </NavLink>
+                    <NavLink className="nav-link" to="/about">
+                        About
+                    </NavLink>
+                    <NavLink className="nav-link" to="/contact">
+                        Contact
+                    </NavLink>
                 </div>
             </div>
         </nav>
