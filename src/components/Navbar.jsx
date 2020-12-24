@@ -1,10 +1,15 @@
 import React from "react";
 import {NavLink, withRouter} from "react-router-dom";
-
+import auth from "../auth";
 const Navbar = (props) => {
     //useEffect(() => {
-    //    props.history.push("/about");
-    //}, []);
+    //    props.history.push('/about')
+    //}, [])
+    const authHandler = () => {
+        const cb = () => props.history.push(auth.isAuthenticated() ? "/about" : "/");
+        auth.isAuthenticated() ? auth.logout(cb) : auth.login(cb);
+    };
+    const btnText = auth.isAuthenticated() ? "logout" : "login";
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <a className="navbar-brand" href="#">
@@ -15,17 +20,26 @@ const Navbar = (props) => {
             </button>
 
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <div className="nav nav-tab">
-                    <NavLink className="nav-link" to="/">
-                        Home <span className="sr-only">(current)</span>
-                    </NavLink>
-                    <NavLink className="nav-link" to="/about">
-                        About
-                    </NavLink>
-                    <NavLink className="nav-link" to="/contact">
-                        Contact
-                    </NavLink>
-                </div>
+                <ul className="nav nav-tab mr-auto">
+                    <li>
+                        <NavLink className="nav-link" to="/">
+                            Home <span className="sr-only">(current)</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink className="nav-link" to="/about">
+                            About
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink className="nav-link" to="/contact">
+                            Contact
+                        </NavLink>
+                    </li>
+                </ul>
+                <button className="btn btn-success navbar-btn" onClick={authHandler}>
+                    {btnText}
+                </button>
             </div>
         </nav>
     );

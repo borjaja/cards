@@ -10,7 +10,9 @@ class Auth {
         this.authenticated = false;
         cb();
     }
-    isAuthenticate = () => this.authenticated;
+    isAuthenticated() {
+        return this.authenticated;
+    }
 }
 
-export default Auth;
+export default new Auth();
