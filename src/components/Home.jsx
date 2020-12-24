@@ -14,7 +14,7 @@ const Home = () => {
             posts.map((post) => (
                 <div className="card" key={`${post.id}`}>
                     <div className="card-body">
-                        <Link to={`${post.id}`}>
+                        <Link to={`post/${post.id}`}>
                             <h5 className="card-title">{post.title}</h5>
                         </Link>
 
